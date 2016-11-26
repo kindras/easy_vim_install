@@ -1,0 +1,72 @@
+""""""""""""""""""""
+""VUNDLE CONFIG HERE
+""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'scrooloose/syntastic'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+""""""""""""""""""""
+""   DIFF PART
+""""""""""""""""""""
+"Setting monokai as default colorscheme for diffs
+if &diff
+  colorscheme monokai
+endif
+
+""""""""""""""""""""
+""  DISPLAY PART
+""""""""""""""""""""
+"Display option
+set number
+set relativenumber
+syntax enable
+
+"Define local leader for further config
+let maplocalleader = "\\"
+"Display two lines
+set laststatus=2
+"Print the name and the type of the current file
+set statusline="%f%m%r%h%w [%Y] %< %F%=%4v"
+""""""""""""""""""""
+""  REMAP PART   
+""""""""""""""""""""
+
+"Beginning of the interesting config
+inoremap jk <esc>
+"Screen moves
+nnoremap <c-h>  <c-w>h
+nnoremap <c-j>  <c-w>j
+nnoremap <c-l>  <c-w>l
+nnoremap <c-k>  <c-w>k
+
+"Mapping scroll on ctrl q
+nnoremap <c-q>  <c-y>
+
+""""""""""""""""""""
+""  INDENTATION
+""""""""""""""""""""
+"Configure indentation
+set autoindent
+set smartindent
+"No to the tabs !
+set tabstop=3
+set shiftwidth=3
+set expandtab
