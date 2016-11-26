@@ -36,7 +36,6 @@ endif
 """"""""""""""""""""
 "Display option
 set number
-set relativenumber
 syntax enable
 
 "Define local leader for further config
