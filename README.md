@@ -15,3 +15,4 @@ Then I propose the following configuration.
 - Quick shortcut to move from a window to another one
 - Display the name of the file at the bottom of the screen, and numbers
 - Basic indentation style, without tabs.
+- Adding the after/ftplugin folders to be able to describe specific configuration for each language
