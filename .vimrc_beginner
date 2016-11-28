@@ -24,6 +24,27 @@ filetype plugin indent on    " required
 
 
 """"""""""""""""""""
+""   SYNTASTIC
+""""""""""""""""""""
+
+"Do not activate syntastic during a vimdifff
+if &diff
+   let g:syntastic_mode_map = { 'mode': 'passive',}
+else
+   let g:syntastic_always_populate_loc_list = 1
+   let g:syntastic_auto_loc_list = 1
+   let g:syntastic_check_on_open = 1
+   let g:syntastic_check_on_wq = 0
+
+   let g:syntastic_c_checkers=['cppcheck', 'clang_check']
+   let g:syntastic_cpp_checkers=['cppcheck', 'clang_check']
+   " let clang_check use the compilation database
+   let g:syntastic_c_clang_check_post_args = ""
+   let g:syntastic_cpp_clang_check_post_args = ""
+endif
+
+
+""""""""""""""""""""
 ""   DIFF PART
 """"""""""""""""""""
 "Setting monokai as default colorscheme for diffs
@@ -31,21 +52,49 @@ if &diff
   colorscheme monokai
 endif
 
+
+"Mapping for three ways merge
+map ,2 "<ESC>:diffg LO<ENTER><ESC>:diffu<ENTER><ESC>"
+map ,3 "<ESC>:diffg BA<ENTER><ESC>:diffu<ENTER><ESC>"
+map ,4 "<ESC>:diffg RE<ENTER><ESC>:diffu<ENTER><ESC>"
 """"""""""""""""""""
 ""  DISPLAY PART
 """"""""""""""""""""
 "Display option
 set number
+
+autocmd InsertLeave * :set relativenumber
+autocmd InsertEnter * :set norelativenumber
+
+"Allow syntax coloration
 syntax enable
 
 "Define local leader for further config
 let maplocalleader = "\\"
+"Command to display constantly the current filename
+set statusline=%f%m%r%h%w\ [Line=%04l/%04.8L]\ [%p%%]
+set statusline +=%{fugitive#statusline()}
 "Display two lines
 set laststatus=2
-"Print the name and the type of the current file
-set statusline="%f%m%r%h%w [%Y] %< %F%=%4v"
+
+"Configuring splits.
+"Prefer split below with :split
+set splitbelow
+"Prefer split on the right with :vsplit
+set splitright
+
 """"""""""""""""""""
-""  REMAP PART   
+""  HIGHLIGHT
+""""""""""""""""""""
+"Highlight tab in current file
+highlight TabLine ctermbg=Blue
+match TabLine /\t/
+
+" highlight in "Error" style white caracters at the end of lines
+autocmd InsertLeave * match Error /\s\+$/
+
+""""""""""""""""""""
+""  REMAP PART
 """"""""""""""""""""
 
 "Beginning of the interesting config
