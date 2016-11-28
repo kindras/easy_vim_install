@@ -15,3 +15,8 @@ cp .vimrc_beginner ${HOME}/.vimrc
 
 #Run the VundleUpdate from commandline
 vim -c VundleUpdate -c quitall
+
+#Create directory to describe multiple language configuration
+mkdir -p ${HOME}/.vim/after/ftplugin/
+cp c.vim ${HOME}/.vim/after/ftplugin/.
+cp python.vim ${HOME}/.vim/after/ftplugin/.
