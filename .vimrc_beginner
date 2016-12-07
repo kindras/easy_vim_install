@@ -19,6 +19,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 "DoxygenTool
 Plugin 'DoxygenToolkit.vim'
+"Monokai
+Plugin 'lsdr/monokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
