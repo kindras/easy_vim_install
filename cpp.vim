@@ -11,7 +11,7 @@ setlocal softtabstop=2
 "Set indentation of parameters
 setlocal cino+=(0
 
-iabbrev print PrintLine( " CLACROIX:
+iabbrev print PrintLine( "CLACROIX:
 
 "========== CSCOPE ============
 " CSCOPE Autoload module
@@ -32,4 +32,3 @@ augroup cleanFileAtExit
    autocmd BufWritePre *.c,*.h,*.cpp,*.hpp :%s/\s\+$//e
    autocmd BufWritePre *.c,*.h,*.cpp,*.hpp :ClangFormat
 augroup END
-

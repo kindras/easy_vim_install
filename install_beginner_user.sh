@@ -18,6 +18,13 @@ cp .vimrc_beginner ${HOME}/.vimrc
 vim -c VundleUpdate -c quitall
 
 #Create directory to describe multiple language configuration
-mkdir -p ${HOME}/.vim/after/ftplugin/
-cp c.vim ${HOME}/.vim/after/ftplugin/.
-cp python.vim ${HOME}/.vim/after/ftplugin/.
+mkdir -p ${HOME}/.vim/indent
+cp c.vim cpp.vim python.vim  ${HOME}/.vim/indent/.
+
+#adding dictionaries
+mkdir -p ${HOME}/.vim/spell
+cp en.utf-8.add en.utf-8.add.spl fr.utf-8.spl ${HOME}/.vim/spell/.
+
+#adding custom plugin for cscope
+mkdir -p ${HOME}/.vim/plugins
+cp cscope_maps.vim ${HOME}/.vim/plugins

@@ -1,0 +1,13 @@
+param
+FlightSet
+StatusFatal
+PrecheckSegment
+CUNCombi
+ASFSegment
+PrechSegment
+Precheck
+EF
+ASFPrecheckSegment
+FG
+RBD
+Heurism
