@@ -45,6 +45,9 @@ else
 endif
 
 
+"Deactivate bracketed paste mode in vi
+set t_BE=
+
 "enable syntax color
 syntax enable
 
@@ -62,6 +65,7 @@ augroup displayAfterInsert
    " highlight in "Error" style white caracters at the end of lines
    autocmd InsertLeave * match Error /\s\+$/
    autocmd InsertLeave * match TabLine /\t/
+   autocmd InsertLeave * match custom_type "\v[A-Z][A-Za-z_]*_t"
    autocmd InsertLeave * :set relativenumber
 augroup END
 
@@ -72,8 +76,10 @@ set showmatch
 set statusline=%f%m%r%h%w\ [Line=%04l/%04.8L]\ [%p%%]
 set statusline +=%{fugitive#statusline()}
 set laststatus=2
-hi StatusLine ctermfg=white     ctermbg=black     cterm=bold
 set showcmd
+
+"Customize status line. Use a Blue background for the focused window
+hi StatusLine ctermfg=white     ctermbg=DarkBlue     cterm=bold
 
 " use space instead of tab
 setlocal expandtab
@@ -88,6 +94,7 @@ setlocal splitright
 
 " ========= Syntastic =========
 if &diff
+   "Deactivate syntastic during a vimdiff
    let g:syntastic_mode_map = { 'mode': 'passive',}
 else
    let g:syntastic_aggregate_errors = 1
@@ -112,21 +119,26 @@ endif
 "Mapping scroll on ctrl q
 nnoremap <c-q>  <c-y>
 "Beginning of the interesting config
+
+" use jk keystroke to emluate escape keystroke during insert mode
 inoremap jk <esc>
+"
 " CAUTION, ONLY FOR EXPERIMENTED VIM USERS (SOME OF DEVS BECAME CRAZY)
-vnoremap   <Up>     <nop>
-vnoremap   <Down>   <nop>
-vnoremap   <Left>   <nop>
-vnoremap   <Right>  <nop>
-inoremap   <Up>     <nop>
-inoremap   <Down>   <nop>
-inoremap   <Left>   <nop>
-inoremap   <Right>  <nop>
-inoremap   <esc>    <nop>
-nnoremap   <Up>     <nop>
-nnoremap   <Down>   <nop>
-nnoremap   <Left>   <nop>
-nnoremap   <Right>  <nop>
+" ACTIVATE THIS IF YOU ARE REALLY USED TO USE hjkl
+"
+" vnoremap   <Up>     <nop>
+" vnoremap   <Down>   <nop>
+" vnoremap   <Left>   <nop>
+" vnoremap   <Right>  <nop>
+" inoremap   <Up>     <nop>
+" inoremap   <Down>   <nop>
+" inoremap   <Left>   <nop>
+" inoremap   <Right>  <nop>
+" inoremap   <esc>    <nop>
+" nnoremap   <Up>     <nop>
+" nnoremap   <Down>   <nop>
+" nnoremap   <Left>   <nop>
+" nnoremap   <Right>  <nop>
 
 "Creating shortcut to move easily from another windows
 nnoremap <C-j> <C-w>j

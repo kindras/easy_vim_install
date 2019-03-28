@@ -12,7 +12,7 @@ mkdir -p ${HOME}/.vim/colors
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
 cp monokai.vim ${HOME}/.vim/colors/.
 [ -s ${HOME}/.vimrc ] && mv ${HOME}/.vimrc ${HOME}/.vimrc_before_easy_vim_install
-cp .vimrc_advanced ${HOME}/.vimrc
+cp .vimrc ${HOME}/.vimrc
 
 #Run the VundleUpdate from commandline
 vim -c VundleUpdate -c quitall
