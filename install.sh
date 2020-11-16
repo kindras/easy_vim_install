@@ -1,8 +1,6 @@
 #! /usr/bin/zsh
 
-sudo apt-get update;
-sudo apt-get install vim;
-sudo apt-get install git;
+sudo zypper in -y vim git;
 
 #Create useful directory
 mkdir -p ${HOME}/.vim/bundle
