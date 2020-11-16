@@ -41,7 +41,7 @@ if &diff
    set diffopt+=iwhite
    setlocal nospell
 else
-   setlocal spell
+   setlocal nospell
 endif
 
 
@@ -65,7 +65,7 @@ augroup displayAfterInsert
    " highlight in "Error" style white caracters at the end of lines
    autocmd InsertLeave * match Error /\s\+$/
    autocmd InsertLeave * match TabLine /\t/
-   autocmd InsertLeave * match custom_type "\v[A-Z][A-Za-z_]*_t"
+   " autocmd InsertLeave * match custom_type "\v[A-Z][A-Za-z_]*_t"
    autocmd InsertLeave * :set relativenumber
 augroup END
 
